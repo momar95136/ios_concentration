@@ -16,16 +16,21 @@ class ViewController: UIViewController {
 
         }
     }
-
+    @IBOutlet var cardsList: [UIButton]!
+    var arrayValue :[String] = ["👻","🎃","👻","🎃"]
+    
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount+=1
-        flipCard(withEmoji: "👻", on: sender)
+        if let index = cardsList.firstIndex(of: sender){
+
+        flipCard(withEmoji: arrayValue[index] , on: sender)
+        print("clicked index \(index) with value : \(arrayValue[index])")
+        }
     }
     
-    @IBAction func touchSecondCard(_ sender: UIButton) {
-        flipCount+=1
-        flipCard(withEmoji: "🎃", on: sender)
-    }
+    
+   
+    
     func flipCard(withEmoji emoji: String, on button:UIButton){
     
         if button.currentTitle == emoji{
